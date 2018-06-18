@@ -3,20 +3,28 @@
 A Nuxt.js project starter for static websites with:
 
 - Pre-processors,
-- CSS [Mini reset](https://jgthms.com/minireset.css/)
+- CSS [Mini reset](https://jgthms.com/minireset.css/),
 - PWA,
 - Meta tags,
-- Static deployment
-- ESlint
+- Static deployment,
+- ESlint.
 
 ## To do
 
-- [ ] Add CSS Autoprefixer
+- [ ] Add CSS Autoprefixer.
 - [ ] Globally import variables in components, pages and layouts.
+
+## Installation
+
+Clone this repository and follow the development instructions 🔑
+
+```bash
+git clone git@github.com:bellangerq/nuxt-starter.git
+```
 
 ## Development
 
-Before starting, make sure to clean the default content and style in `pages/index.vue` and you're good to go :rocket:
+Before starting, make sure to clean the default content and style in `pages/index.vue` and you're good to make it yours 🚀
 
 Serve on localhost:3000:
 ```bash
