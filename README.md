@@ -1,52 +1,15 @@
-# Nuxt.js starter
+# Word Game
 
-A Nuxt.js project starter for static websites with:
+Simple Word game built on with [Vue](https://vuejs.org/) and [Nuxt.js](https://nuxtjs.org).
 
-- Pre-processors,
-- CSS [Mini reset](https://jgthms.com/minireset.css/),
-- PWA,
-- Meta tags,
-- Static deployment,
-- ESlint.
+## Rules
 
-## To do
+Fill the input with the word above before time is up ⏰. The game becomes harder over the levels!
 
-- [ ] Add CSS Autoprefixer.
-- [ ] Globally import variables in components, pages and layouts.
+## Todo
 
-## Installation
-
-Clone this repository and follow the development instructions 🔑
-
-```bash
-git clone git@github.com:bellangerq/nuxt-starter.git
-```
-
-## Development
-
-Before starting, make sure to clean the default content and style in `pages/index.vue` and you're good to make it yours 🚀
-
-Serve on localhost:3000:
-```bash
-npm run dev
-```
-
-Build for production:
-```bash
-npm run build
-```
-
-Launch production build:
-```bash
-npm run start
-```
-
-Generate static website:
-```bash
-npm run generate
-```
-
-Deploy on Surge:
-```bash
-npm run deploy
-```
+- [ ] Reset countdown on new word.
+- [ ] Display the highest reached series.
+- [ ] Start the game after player clicks on the "Start" button.
+- [ ] When timer is on 0.00, show end screen (score, replay button, share buttons)
+- [ ] Restart the game when player clicks on the "Restart" button.
