@@ -1,7 +1,7 @@
 {
   "name": "nuxt-starter",
   "version": "1.0.0",
-  "description": "Nuxt.js starter",
+  "description": "Word game",
   "author": "Quentin Bellanger <hello@quentin-bellanger.com>",
   "private": true,
   "scripts": {
@@ -9,12 +9,10 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "deploy": "surge dist/"
+    "deploy": "surge dist/ vue-word-game.surge.sh"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
-    "@nuxtjs/pwa": "^2.0.8",
-    "@xkeshi/vue-countdown": "^0.6.0",
     "nuxt": "^1.0.0"
   },
   "devDependencies": {

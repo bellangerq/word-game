@@ -8,8 +8,8 @@ Fill the input with the word above before time is up ⏰. The game becomes harde
 
 ## Todo
 
-- [ ] Reset countdown on new word.
+- [x] Reset countdown on new word.
 - [ ] Display the highest reached series.
-- [ ] Start the game after player clicks on the "Start" button.
+- [x] Start the game after player clicks on the "Start" button.
 - [ ] When timer is on 0.00, show end screen (score, replay button, share buttons)
 - [ ] Restart the game when player clicks on the "Restart" button.

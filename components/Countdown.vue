@@ -1,19 +1,16 @@
 <template lang="html">
-  <VueCountdown class="timer" :time="$store.state.timer" :interval="100" tag="span">
-    <template slot-scope="props">{{ props.seconds }}<sub>seconds</sub></template>
-  </VueCountdown>
+  <span class="timer">
+    {{ ($store.state.timer).toFixed(2) }}
+    <sub>seconds</sub>
+  </span>
 </template>
 
 <script type="text/javascript">
-import VueCountdown from '@xkeshi/vue-countdown'
 export default {
-  components: {
-    VueCountdown
-  }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/stylesheets/vars.scss';
 
 .timer {

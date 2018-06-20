@@ -42,24 +42,8 @@ module.exports = {
   loading: { color: '#0097a7' },
 
   modules: [
-    '@nuxtjs/pwa',
     '@nuxtjs/axios'
   ],
-
-  manifest: {
-    'name': 'Word game',
-    'short_name': 'Word game',
-    'start_url': '/?homescreen=true',
-    'display': 'standalone',
-    'orientation': 'portrait',
-    'theme_color': '#0097a7',
-    'background_color': '#fff',
-    'icons': [{
-      'src': '@/static/icon.png',
-      'sizes': '512x512',
-      'type': 'image/png'
-    }]
-  },
 
   build: {
     extend (config, { isDev, isClient }) {

@@ -1,21 +1,32 @@
 <template lang="html">
   <main>
+    <Start v-if="$store.state.startScreen" />
     <Header />
     <section>
       <Countdown />
       <p class="word">{{ $store.state.currentWord }}</p>
-      <input v-model="userInput" :class="{ 'has-error': $store.state.hasError }" @input="handleAnswer" type="text" placeholder="Type the word above" autofocus>
+      <input
+        ref="input"
+        v-model="userInput"
+        :class="{ 'has-error': $store.state.hasError }"
+        @input="handleAnswer"
+        type="text"
+        placeholder="Type the word above"
+        autofocus
+      >
       <p class="error" v-if="$store.state.hasError">Oops...</p>
     </section>
   </main>
 </template>
 
 <script type="text/javascript">
+import Start from '~/components/Start.vue'
 import Header from '~/components/Header.vue'
 import Countdown from '~/components/Countdown.vue'
 
 export default {
   components: {
+    Start,
     Header,
     Countdown
   },
@@ -51,14 +62,14 @@ export default {
         this.$store.commit('INCREMENT_LEVEL')
         this.$store.commit('INCREMENT_REQUIRED_WORDS')
         this.$store.commit('INCREMENT_WORDS_PER_MINUTE')
-        this.$store.commit('UPDATE_TIMER', (60 / this.$store.state.wordsPerMinute) * 1000)
+        this.$store.commit('SET_TIMER')
       }
     },
     showNextWord() {
       this.$store.commit('SET_CURRENT_WORD')
       this.$store.commit('UPDATE_USER_INPUT', '')
       this.$store.commit('INCREMENT_WORDS_IN_A_ROW')
-      this.$store.commit('UPDATE_TIMER', (60 / this.$store.state.wordsPerMinute) * 1000)
+      this.$store.commit('SET_TIMER')
     },
     checkForErrors() {
       this.$store.state.hasError = false
@@ -71,7 +82,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/stylesheets/vars.scss';
 
 section {
@@ -94,7 +105,7 @@ section {
     font-family: $font-sans;
     padding: 5px;
     text-align: center;
-    transition: all 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out;
 
     &:focus {
       border-color: $color-main;
