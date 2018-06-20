@@ -2,12 +2,13 @@
   <div class="start-layer">
     <div class="start-content">
       <p>Welcome on this Word Game!</p>
-      <h2>Rules</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-      <h2>About</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      <h2>Game's rules</h2>
+      <p>You have to fill the text input with the word just above it before the time is up ⏰. The game becomes harder over the levels. Good luck!</p>
+      <h2>About this project</h2>
+      <p><a href="https://quentin-bellanger.com" target="_blank" rel="noopener">I</a> made this game to train up my Vue.js and Nuxt.js skills. Code is available on <a href="https://github.com/bellangerq/word-game" target="_blank" rel="noopener">GitHub</a>.</p>
+      <h2>Ready to play?</h2>
+      <p>Warm your fingers before you click...</p>
       <button @click="launchGame" type="button" name="button">Play</button>
-      <span>Warm your fingers before you click...</span>
     </div>
   </div>
 </template>
@@ -18,7 +19,7 @@ export default {
     launchGame() {
       this.$store.commit('TOGGLE_START_SCREEN')
       this.$store.commit('DECREMENT_TIMER')
-    },
+    }
   }
 }
 </script>
@@ -74,8 +75,15 @@ export default {
       }
     }
 
-    span {
-      margin-left: 25px;
+    a {
+      color: $color-main;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: darken($color-main, 5%);
+        outline: none;
+      }
     }
   }
 }

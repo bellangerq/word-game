@@ -6,7 +6,7 @@
       <Countdown />
       <p class="word">{{ $store.state.currentWord }}</p>
       <input
-        ref="input"
+        ref="toto"
         v-model="userInput"
         :class="{ 'has-error': $store.state.hasError }"
         @input="handleAnswer"

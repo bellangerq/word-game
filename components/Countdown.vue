@@ -1,6 +1,6 @@
 <template lang="html">
   <span class="timer">
-    {{ ($store.state.timer).toFixed(2) }}
+    {{ ($store.state.timer).toFixed(1) }}
     <sub>seconds</sub>
   </span>
 </template>
