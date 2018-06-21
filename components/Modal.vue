@@ -74,24 +74,20 @@ export default {
 @import '../assets/stylesheets/vars.scss';
 
 .modal-layer {
-  align-items: center;
   background: rgba($color-black, 0.2);
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  height: 100%;
+  overflow: scroll;
+  position: fixed;
   width: 100%;
 
   .modal-content {
     background: $color-white;
     border: 3px solid $color-main;
     border-radius: 5px;
-    margin: 0 auto;
+    margin: 25px auto;
     padding: 25px;
-    width: 600px;
+    max-width: 600px;
+    width: calc(100% - 50px);
 
     h2 {
       font-size: 1.75rem;

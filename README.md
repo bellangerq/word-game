@@ -8,5 +8,5 @@ Fill the input with the word above before time is up ⏰. The game becomes harde
 
 ## Todo
 
-- [ ] Fix mobile view for start screen
 - [ ] Fix timer on restart game
+- [ ] lowerCase() input before error fires

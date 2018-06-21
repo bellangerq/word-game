@@ -3,8 +3,8 @@
     <h1><span>Aa</span> Word Game</h1>
     <div class="game-info">
       <p>Current level: <span>{{ $store.state.level.number }}</span></p>
-      <p>Highest streak: <span>{{ $store.state.highestStreak }}</span></p>
       <p>Current streak: <span>{{ $store.state.currentStreak }}</span></p>
+      <p>Highest streak: <span>{{ $store.state.highestStreak }}</span></p>
     </div>
   </header>
 </template>
@@ -21,6 +21,7 @@ header {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  padding: 25px;
 
   h1 {
 

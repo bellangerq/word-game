@@ -27,7 +27,11 @@ export default {
 
 .timer {
   color: $color-gray-light;
-  font-size: 7.5rem;
+  font-size: 4rem;
+
+  @media (min-width: 600px) {
+    font-size: 7.5rem;
+  }
 
   sub {
     font-size: 1rem;

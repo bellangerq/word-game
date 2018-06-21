@@ -4,18 +4,16 @@
   </div>
 </template>
 
-<script type="text/javascript">
-export default {
-}
-</script>
-
 <style lang="scss">
 @import '../assets/stylesheets/vars.scss';
 
+html {
+  background: $color-main;
+}
 body {
+  background: $color-white;
   font-family: $font-sans;
   margin: 0 auto;
-  padding: 25px;
   height: 100vh;
 }
 </style>

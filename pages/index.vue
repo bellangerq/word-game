@@ -19,14 +19,14 @@
 </template>
 
 <script type="text/javascript">
-import Modal from '~/components/Modal.vue'
 import Header from '~/components/Header.vue'
+import Modal from '~/components/Modal.vue'
 import Countdown from '~/components/Countdown.vue'
 
 export default {
   components: {
-    Modal,
     Header,
+    Modal,
     Countdown
   },
   computed: {
@@ -38,17 +38,14 @@ export default {
     },
     userInput: {
       get () {
-        return this.$store.state.userInput
+        return this.$store.state.userInput.toLowerCase()
       },
       set (value) {
-        this.$store.commit('UPDATE_USER_INPUT', value)
+        this.$store.commit('UPDATE_USER_INPUT', value.toLowerCase())
       }
     }
   },
   methods: {
-    focusInput() {
-      this.$refs.inputField.focus()
-    },
     handleAnswer() {
       // Handle errors if any
       this.checkForErrors()
@@ -56,7 +53,7 @@ export default {
       // If word is good
       if (this.wordIsGood) {
         this.showNextWord()
-        this.setStreaks()
+        this.updateStreaks()
       }
 
       // On level-up
@@ -81,7 +78,7 @@ export default {
         this.$store.commit('SET_ERROR', true)
       }
     },
-    setStreaks() {
+    updateStreaks() {
       this.$store.commit('INCREMENT_CURRENT_STREAK')
 
       if (this.$store.state.currentStreak > this.$store.state.highestStreak) {
@@ -104,8 +101,12 @@ section {
 
   .word {
     color: $color-black;
-    font-size: 3rem;
+    font-size: 2rem;
     margin: 50px 0;
+
+    @media (min-width: 600px) {
+      font-size: 3rem;
+    }
   }
 
   input[type="text"] {
@@ -113,9 +114,11 @@ section {
     border-radius: 5px;
     font-size: 1.5rem;
     font-family: $font-sans;
+    max-width: 300px;
     padding: 5px;
     text-align: center;
     transition: border-color 0.3s ease-in-out;
+    width: 100%;
 
     &:focus {
       border-color: $color-main;
