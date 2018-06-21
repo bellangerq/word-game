@@ -2,8 +2,9 @@
   <header>
     <h1><span>Aa</span> Word Game</h1>
     <div class="game-info">
-      <p>Current level: <span>{{ $store.state.level }}</span></p>
-      <p>Words in a row: <span>{{ $store.state.wordsInARow }}</span></p>
+      <p>Current level: <span>{{ $store.state.level.number }}</span></p>
+      <p>Highest streak: <span>{{ $store.state.highestStreak }}</span></p>
+      <p>Current streak: <span>{{ $store.state.currentStreak }}</span></p>
     </div>
   </header>
 </template>

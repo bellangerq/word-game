@@ -1,18 +1,17 @@
 <template lang="html">
   <main>
-    <Start v-if="$store.state.startScreen" />
+    <Modal v-if="$store.state.modal.start || $store.state.modal.end"/>
     <Header />
     <section>
       <Countdown />
       <p class="word">{{ $store.state.currentWord }}</p>
       <input
-        ref="toto"
+        ref="inputField"
         v-model="userInput"
         :class="{ 'has-error': $store.state.hasError }"
         @input="handleAnswer"
         type="text"
         placeholder="Type the word above"
-        autofocus
       >
       <p class="error" v-if="$store.state.hasError">Oops...</p>
     </section>
@@ -20,13 +19,13 @@
 </template>
 
 <script type="text/javascript">
-import Start from '~/components/Start.vue'
+import Modal from '~/components/Modal.vue'
 import Header from '~/components/Header.vue'
 import Countdown from '~/components/Countdown.vue'
 
 export default {
   components: {
-    Start,
+    Modal,
     Header,
     Countdown
   },
@@ -35,7 +34,7 @@ export default {
       return this.$store.state.currentWord === this.$store.state.userInput
     },
     canLevelUp() {
-      return this.$store.state.wordsInARow === this.$store.state.requiredWords
+      return this.$store.state.wordsInARow === this.$store.state.level.requiredWords
     },
     userInput: {
       get () {
@@ -47,6 +46,9 @@ export default {
     }
   },
   methods: {
+    focusInput() {
+      this.$refs.inputField.focus()
+    },
     handleAnswer() {
       // Handle errors if any
       this.checkForErrors()
@@ -54,6 +56,7 @@ export default {
       // If word is good
       if (this.wordIsGood) {
         this.showNextWord()
+        this.setStreaks()
       }
 
       // On level-up
@@ -72,10 +75,17 @@ export default {
       this.$store.commit('SET_TIMER')
     },
     checkForErrors() {
-      this.$store.state.hasError = false
+      this.$store.commit('SET_ERROR', false)
 
       if (!this.$store.state.currentWord.startsWith(event.target.value)) {
-        this.$store.state.hasError = true
+        this.$store.commit('SET_ERROR', true)
+      }
+    },
+    setStreaks() {
+      this.$store.commit('INCREMENT_CURRENT_STREAK')
+
+      if (this.$store.state.currentStreak > this.$store.state.highestStreak) {
+        this.$store.commit('SET_HIGHEST_STREAK', this.$store.state.currentStreak)
       }
     }
   }
@@ -94,14 +104,14 @@ section {
 
   .word {
     color: $color-black;
-    font-size: 48px;
+    font-size: 3rem;
     margin: 50px 0;
   }
 
   input[type="text"] {
     border: 3px solid $color-gray;
     border-radius: 5px;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-family: $font-sans;
     padding: 5px;
     text-align: center;

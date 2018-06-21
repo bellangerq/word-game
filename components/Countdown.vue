@@ -1,12 +1,24 @@
 <template lang="html">
   <span class="timer">
-    {{ ($store.state.timer).toFixed(1) }}
+    {{ timer }}
     <sub>seconds</sub>
   </span>
 </template>
 
 <script type="text/javascript">
 export default {
+  watch: {
+    timer() {
+      if (this.timer == 0) {
+        this.$store.commit('TOGGLE_END_SCREEN')
+      }
+    }
+  },
+  computed: {
+    timer() {
+      return (this.$store.state.timer).toFixed(1)
+    }
+  }
 }
 </script>
 
@@ -15,10 +27,10 @@ export default {
 
 .timer {
   color: $color-gray-light;
-  font-size: 120px;
+  font-size: 7.5rem;
 
   sub {
-    font-size: 16px;
+    font-size: 1rem;
     vertical-align: baseline;
   }
 }
