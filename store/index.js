@@ -58,13 +58,11 @@ const createStore = () => {
         state.timer = 60 / state.level.wordsPerMinute
       },
       DECREMENT_TIMER: state => {
-        setInterval(() => {
-          if (state.timer <= 0.1) {
-            state.timer = 0
-            return
-          }
-          state.timer = state.timer - 0.1
-        }, 100) // Every 100 milliseconds
+        if (state.timer <= 0.1) {
+          state.timer = 0
+          return
+        }
+        state.timer = state.timer - 0.1
       },
       INCREMENT_WORDS_IN_A_ROW: state => {
         state.wordsInARow ++

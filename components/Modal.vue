@@ -45,8 +45,11 @@ export default {
     launchGame() {
       this.$store.commit('TOGGLE_START_SCREEN')
       this.$store.commit('SET_TIMER')
-      this.$store.commit('DECREMENT_TIMER')
       this.focusInput()
+
+      setInterval(() => {
+        this.$store.commit('DECREMENT_TIMER')
+      }, 100)
     },
     resetGame() {
       // Handle modals

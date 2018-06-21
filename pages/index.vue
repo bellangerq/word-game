@@ -103,6 +103,10 @@ section {
     color: $color-black;
     font-size: 2rem;
     margin: 50px 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     @media (min-width: 600px) {
       font-size: 3rem;
