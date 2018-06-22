@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 const initialLevel = {
   number: 1,
   requiredWords: 5,
-  wordsPerMinute: 10
+  wordsPerMinute: 15
 }
 
 const createStore = () => {
