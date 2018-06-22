@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 const initialLevel = {
   number: 1,
   requiredWords: 5,
-  wordsPerMinute: 20
+  wordsPerMinute: 10
 }
 
 const createStore = () => {
@@ -86,10 +86,24 @@ const createStore = () => {
         const words = []
 
         // Fetch words
-        const url = 'https://api.datamuse.com/words?ml=chicken&sp=*'
-        const result = await app.$axios.$get(url)
-        result.forEach(word => {
-          words.push(word.word)
+        const requestedWordsNumber = 1000
+        const url = `https://apifort-random-word-v1.p.mashape.com/v1/generate/randomword?count=${requestedWordsNumber}`
+        const config = {
+          headers: {
+            'X-Mashape-Key': 'bipAC44YJSmshAkmIyAnNxhxYB7vp18ZCIejsnRCAiPKID3Pv6',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Accept-Encoding': 'gzip'
+          }
+        }
+
+        const result = await app.$axios.get(url, config)
+        const requestedWords = result.data.result
+
+        requestedWords.forEach(word => {
+          if (word.length <= 8) {
+            words.push(word)
+          }
         })
 
         // Initialize store's data

@@ -17,8 +17,9 @@
       <h2>Time's up ⏰</h2>
 
       <h3>Results</h3>
-      <p>Max level: <span>{{ $store.state.level.number }}</span></p>
-      <p>Highest streak: <span>{{ $store.state.highestStreak }}</span> words</p>
+      <p>Max level: <span>{{ $store.state.level.number }}</span>.</p>
+      <p>Highest streak: <span>{{ $store.state.highestStreak }}</span> words.</p>
+      <p>It seems "<span>{{ $store.state.currentWord }}</span>" was too hard to type.</p>
 
       <h3>Try again?</h3>
       <p>Do you think you can make a better score? Feel free to restart a game.</p>

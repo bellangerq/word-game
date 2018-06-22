@@ -10,3 +10,4 @@ Fill the input with the word above before time is up ⏰. The game becomes harde
 
 - [ ] Word submission doesn't work on mobile
 - [ ] Mobile display (keyboard is showing up)
+- [ ] Add difficulty (short / long words)
