@@ -8,7 +8,5 @@ Fill the input with the word above before time is up ⏰. The game becomes harde
 
 ## Todo
 
-- [ ] Fix timer on restart game (cleanInterval())
-- [ ] lowerCase() input before error fires
-- [ ] Word submission doesnt work on mobile
+- [ ] Word submission doesn't work on mobile
 - [ ] Mobile display (keyboard is showing up)

@@ -47,8 +47,13 @@ export default {
       this.$store.commit('SET_TIMER')
       this.focusInput()
 
-      setInterval(() => {
+      const decrementTimer = setInterval(() => {
         this.$store.commit('DECREMENT_TIMER')
+
+        // Stop timer
+        if (this.$store.state.timer == 0) {
+          clearInterval(decrementTimer)
+        }
       }, 100)
     },
     resetGame() {
